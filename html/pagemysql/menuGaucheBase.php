@@ -71,6 +71,7 @@ if (isSet ($_POST ["btSubmit"])){
 		$nomTypeBoitier[] = 	$data['typeBoitier'];	
 		$printBoitierComposant[] = $data['printBoitierComposant'];	
 		$id_typeBoitier[] = $data['id_typeBoitier'];
+		$_SESSION['id_typeBoitier'] = $id_typeBoitier;
 		
 		$_SESSION['nomTypeBoitier'] = $nomTypeBoitier;
 	}

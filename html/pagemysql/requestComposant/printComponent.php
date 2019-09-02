@@ -49,9 +49,6 @@ while ($k <= $totalTypeComposant) {  ?>
 <!-- requete d'affichage de la liste des composants -->
 
 <?php 
-
-//echo $totalNumTypeComposant;
-
 if ($totalNumTypeComposant == 1) { ?>
 
 <?php
@@ -70,7 +67,7 @@ if ($totalNumTypeComposant == 1) { ?>
 				<?php	echo $data['valeur_composant'];?>
 			</td>
 			<td CLASS="text"  ALIGN="LEFT">
-				<?php	echo $_SESSION['nomTypeBoitier'][$data['id_typeComposant']];?>
+				<?php	echo $_SESSION['nomTypeBoitier'][$data['boitier_composant']];?>
 			</td>
 			<td CLASS="text"  ALIGN="LEFT">
 				<?php	echo $data['stock_composant'];?>

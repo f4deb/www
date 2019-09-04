@@ -214,12 +214,9 @@ session_start();
 														</td>
 													</tr>		
 													<tr class="ent"> 
-														<th width="100"><?php echo Type; ?></th>
-														<th width="250"><?php echo valeur; ?></th>
-														<th width="100"><?php echo boitier; ?></th>
-														<th width="50"><?php echo stock; ?></th>
-														<th width="50"><?php echo code; ?></th>
-														<th width="50"><?php echo valide; ?></th>
+														<th width="100"><?php echo "Nom de la carte"; ?></th>
+														<th width="250"><?php echo "Numéro de série"; ?></th>
+
 													</tr>		
 												</form>									
 										

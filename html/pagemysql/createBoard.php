@@ -13,7 +13,7 @@ $sql = "SELECT MAX(id_boards)
   $requeteMaxBoardlist = mysqli_query($db,$sql);
   
   $max = mysqli_fetch_row($requeteMaxBoardlist);
-  
+  $max[0]++;
   
            
      

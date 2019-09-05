@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Dim 01 Septembre 2019 à 22:53
+-- Généré le :  Jeu 05 Septembre 2019 à 22:47
 -- Version du serveur :  10.1.38-MariaDB-0+deb9u1
 -- Version de PHP :  7.0.33-0+deb9u3
 
@@ -29,21 +29,59 @@ SET time_zone = "+00:00";
 CREATE TABLE `boards` (
   `id` int(11) NOT NULL,
   `boards` text NOT NULL,
-  `boards_id` int(5) NOT NULL
+  `serialBoards` varchar(40) NOT NULL,
+  `id_boards` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='latin1_swedish_ci';
+
+--
+-- Contenu de la table `boards`
+--
+
+INSERT INTO `boards` (`id`, `boards`, `serialBoards`, `id_boards`) VALUES
+(1, '8_IO_BUTTON_BOARD_V1-00', 'BUT_010119', 0),
+(2, 'I2C_BUFFER_BOARD_V0.10', 'BUF_020219', 1),
+(4, 'USBTO4UART V1-10', 'USB_030319', 2),
+(72, 'Electronical_Main_Board_V1-50', 'ElecMainBoard-192210', 3),
+(73, 'Electronical_Main_Board_V1-50', 'ElecMainBoard-192209', 3),
+(74, 'Electronical_Main_Board_V1-50', 'ElecMainBoard-192208', 3),
+(75, 'Electronical_Main_Board_V1-50', 'ElecMainBoard-192207', 3),
+(76, 'Electronical_Main_Board_V1-50', 'ElecMainBoard-191806', 3),
+(77, 'Electronical_Main_Board_V1-50', 'ElecMainBoard-191805', 3),
+(78, 'Electronical_Main_Board_V1-50', 'ElecMainBoard-190404', 3),
+(79, 'Electronical_Main_Board_V1-50', 'ElecMainBoard-190403', 3),
+(80, 'Electronical_Main_Board_V1-50', 'ElecMainBoard-190202', 3),
+(81, 'Electronical_Main_Board_V1-50', 'ElecMainBoard-184901', 3);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `boards_requirements`
+-- Structure de la table `boardsRequirements`
 --
 
-CREATE TABLE `boards_requirements` (
+CREATE TABLE `boardsRequirements` (
   `id` int(5) NOT NULL,
   `rep_topo` varchar(40) NOT NULL,
-  `boards_id` int(5) NOT NULL,
+  `id_boards` int(5) NOT NULL,
   `id_composant` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Contenu de la table `boardsRequirements`
+--
+
+INSERT INTO `boardsRequirements` (`id`, `rep_topo`, `id_boards`, `id_composant`) VALUES
+(1, 'D201', 1, 10104001),
+(2, 'C201', 1, 10010003),
+(3, 'C202', 1, 10010003),
+(4, 'R201', 1, 10000015),
+(5, 'R204', 1, 10000015),
+(6, 'R206', 1, 10000015),
+(7, 'R208', 1, 10000015),
+(8, 'R202', 1, 10000014),
+(9, 'R205', 1, 10000014),
+(10, 'R207', 1, 10000014),
+(11, 'R209', 1, 10000014),
+(12, 'R203', 1, 10000001);
 
 -- --------------------------------------------------------
 
@@ -92,35 +130,38 @@ CREATE TABLE `composant` (
 --
 
 INSERT INTO `composant` (`id`, `valeur_composant`, `boitier_composant`, `id_typeComposant`, `stock_composant`, `id_composant`) VALUES
-(1, '1k', '0', 0, 1, 100001),
-(2, '10k', '0', 0, 1, 100002),
-(3, '100k', '0', 0, 0, 100003),
-(4, '1', '0', 0, 0, 100004),
-(5, '10', '0', 0, 0, 100005),
-(6, '100', '0', 0, 0, 100006),
-(7, '1M', '0', 0, 0, 100007),
-(8, '10M', '0', 0, 0, 100008),
-(9, '22', '0', 0, 0, 100009),
-(10, '220', '0', 0, 0, 100010),
-(11, '2.2k', '0', 0, 0, 100011),
-(12, '22k', '0', 0, 0, 100012),
-(13, '220k', '0', 0, 0, 100013),
-(14, '100n', '0', 1, 0, 101001),
-(15, '10n', '0', 1, 1, 101002),
-(16, '1n', '0', 1, 0, 101003),
-(17, '22n', '0', 1, 0, 101004),
-(18, '220n', '0', 1, 0, 101005),
-(19, '330n', '0', 1, 0, 101006),
-(20, '33n', '0', 1, 0, 101007),
-(21, '47n', '0', 1, 0, 101008),
-(22, '4.7n', '0', 1, 0, 101009),
-(23, 'vert', '1', 4, 0, 114001),
-(24, 'jaune', '1', 4, 0, 114002),
-(25, 'rouge', '1', 4, 0, 114003),
-(28, '1N4148', '3', 3, 1, 133001),
-(29, 'N148', '2', 3, 1, 123001),
-(30, '3.3n', '0', 1, 1, 101020),
-(33, '1µ', '2', 2, 10, 122001);
+(1, '1k', '0', 0, 1, 10000001),
+(2, '10k', '0', 0, 1, 10000002),
+(3, '100k', '0', 0, 0, 10000003),
+(4, '1', '0', 0, 0, 10000004),
+(5, '10', '0', 0, 0, 10000005),
+(6, '100', '0', 0, 0, 10000006),
+(7, '1M', '0', 0, 0, 10000007),
+(8, '10M', '0', 0, 0, 10000008),
+(9, '22', '0', 0, 0, 10000009),
+(10, '220', '0', 0, 0, 10000010),
+(11, '2.2k', '0', 0, 0, 10000011),
+(12, '22k', '0', 0, 0, 10000012),
+(13, '220k', '0', 0, 0, 10000013),
+(14, '100n', '0', 1, 0, 10010001),
+(15, '10n', '0', 1, 1, 10010002),
+(16, '1n', '0', 1, 0, 10010003),
+(17, '22n', '0', 1, 0, 10010004),
+(18, '220n', '0', 1, 0, 10010005),
+(19, '330n', '0', 1, 0, 10010006),
+(20, '33n', '0', 1, 0, 10010007),
+(21, '47n', '0', 1, 0, 10010008),
+(22, '4.7n', '0', 1, 0, 10010009),
+(28, '1N4148', '3', 3, 1, 10303001),
+(29, 'N148', '2', 3, 1, 10203001),
+(30, '3.3n', '0', 1, 1, 10010020),
+(33, '1µ', '2', 2, 10, 10202001),
+(36, 'vert', '1', 4, 1, 10104001),
+(38, '1k', '1', 0, 1, 10100001),
+(39, '10k', '1', 0, 1, 10100002),
+(40, '2.1k', '0', 0, 1, 10000014),
+(41, '0', '0', 0, 1, 10000015),
+(42, '4546456', '0', 0, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -140,11 +181,11 @@ CREATE TABLE `typeComposant` (
 --
 
 INSERT INTO `typeComposant` (`id`, `typecomposant`, `numTypeComposant`, `printTypeComposant`) VALUES
-(1, 'resistance', 0, 0),
-(2, 'condensateur', 1, 0),
-(3, 'inductance', 2, 0),
-(4, 'diode', 3, 1),
-(5, 'led', 4, 0);
+(1, 'resistance', 0, 1),
+(2, 'condensateur', 1, 1),
+(3, 'inductance', 2, 1),
+(4, 'diode', 3, 0),
+(5, 'led', 4, 1);
 
 -- --------------------------------------------------------
 
@@ -176,9 +217,9 @@ ALTER TABLE `boards`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `boards_requirements`
+-- Index pour la table `boardsRequirements`
 --
-ALTER TABLE `boards_requirements`
+ALTER TABLE `boardsRequirements`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -214,12 +255,12 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT pour la table `boards`
 --
 ALTER TABLE `boards`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 --
--- AUTO_INCREMENT pour la table `boards_requirements`
+-- AUTO_INCREMENT pour la table `boardsRequirements`
 --
-ALTER TABLE `boards_requirements`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `boardsRequirements`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT pour la table `boitierComposant`
 --
@@ -229,7 +270,7 @@ ALTER TABLE `boitierComposant`
 -- AUTO_INCREMENT pour la table `composant`
 --
 ALTER TABLE `composant`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 --
 -- AUTO_INCREMENT pour la table `typeComposant`
 --

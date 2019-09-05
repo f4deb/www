@@ -15,7 +15,8 @@ if($_SESSION['numeroOnglet'] == 1){
 // listing des cartes,numéro de série et id des cartes
 if($_SESSION['numeroOnglet'] == 2){ 
 	$listBoardSql = "SELECT boards,serialBoards,id_boards
-							FROM boards";
+							FROM boards
+							GROUP By id_Boards";
 	$requestListBoard = mysqli_query($db,$listBoardSql);
 	while ($data = mysqli_fetch_array($requestListBoard)){
 		$listBoard[] = $data['boards'];
@@ -24,13 +25,11 @@ if($_SESSION['numeroOnglet'] == 2){
 	
 	
 	$maxBoardList = "SELECT id_boards 
-								FROM boards";	
+								FROM boards
+								GROUP By id_Boards";	
 	$requestMaxBoard = mysqli_query($db,$maxBoardList);
 	$_SESSION['totalListBoard'] = mysqli_num_rows($requestMaxBoard)-1;
 }
-
-
-
 
 ?>
 
@@ -177,7 +176,7 @@ if($_SESSION['numeroOnglet'] == 2){
 <!-- ******************************************************* -->		
 
 <!-- ******************************************************* -->						
-<!-- ******************* ONGLET COMPOSANTS ***************** -->
+<!-- ******************* ONGLET BOARDS ***************** -->
 <!-- ******************************************************* -->
 						<?php if($_SESSION['numeroOnglet'] == 2){ ?>	
 
@@ -205,12 +204,12 @@ if($_SESSION['numeroOnglet'] == 2){
 												<tr CLASS="text"  ALIGN="LEFT"> 
 														<td>		
 															<div>
-																<input type = "text" size="20"name="nameBoard" value ="azerty" />
+																<input type = "text" size="20"name="nameBoard" value ="xxx" />
 															</div>										
 														</td>
 														<td>										
 															<div>
-																<input type = "text" size="20"name="serialBoard" value ="azerty" />
+																<input type = "text" size="20"name="serialBoard" value ="xxx" />
 															</div>
 														</td>
 
@@ -228,7 +227,7 @@ if($_SESSION['numeroOnglet'] == 2){
 													<tr CLASS="text"  ALIGN="LEFT"> 
 														<td>		
 															<div>																		
-																<select name="boardName">
+																<select name="nameBoard">
 																	<option selected = "selected"><?php echo $_SESSION['listBoard'][0];?></option>
 																	<?php $totalTypeComposant = $_SESSION['totalListBoard']; $j = 1;
 																	while ($totalTypeComposant) {?>
@@ -240,7 +239,7 @@ if($_SESSION['numeroOnglet'] == 2){
 														</td>
 														<td>										
 															<div>
-																<input type = "text" size="20"name="boardSerial" value ="azerty" />
+																<input type = "text" size="20"name="serialBoard" value ="xxx" />
 															</div>
 														</td>
 

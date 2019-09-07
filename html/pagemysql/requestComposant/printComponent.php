@@ -46,19 +46,32 @@ while ($k <= $totalTypeComposant) {  ?>
 
 
 
-<!-- requete d'affichage de la liste des composants -->
+
 
 <?php 
 if ($totalNumTypeComposant == 1) { ?>
-
+	<tr class="ent"> 
+		<th width="100"><?php echo Type; ?></th>
+		<th width="250"><?php echo valeur; ?></th>
+		<th width="100"><?php echo boitier; ?></th>
+		<th width="50"><?php echo stock; ?></th>
+		<th width="50"><?php echo code; ?></th>
+		<th width="50"><?php echo valide; ?></th>
+	</tr>		
+<!-- requete d'affichage de la liste des composants -->
 <?php
 	$printComposantSql = "SELECT id,boitier_composant,valeur_composant,id_typeComposant,stock_composant,id_composant 
 									FROM composant 
 									where id_typecomposant = $i";	
 	
 	$requete = mysqli_query($db,$printComposantSql);
+	
+	
+	
 	while	($data = mysqli_fetch_array($requete)){
 ?>
+
+
 		<tr>
 			<td CLASS="text"  ALIGN="LEFT">
 				<?php	echo $strNumTypeComposant;?>

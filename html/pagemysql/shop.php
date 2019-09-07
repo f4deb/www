@@ -65,10 +65,10 @@ if($_SESSION['numeroOnglet'] == 2){
 								<td CLASS="text" ALIGN="CENTER">
 									<div id="menu">
 	  									<ul id="onglets">
-											<li><a href="shop1.php" >Components </a></li>		
-    										<li><a href="shop2.php" >Boards </a></li>		
-    										<li><a href="shop3.php" >Board Requirement </a></li>		
-  											<li><a href="shop4.php" >Consommation </a></li>	
+											<li><a href="shop/shop1.php" >Components </a></li>		
+    										<li><a href="shop/shop2.php" >Boards </a></li>		
+    										<li><a href="shop/shop3.php" >Board Requirement </a></li>		
+  											<li><a href="shop/shop4.php" >Consommation </a></li>	
   										</ul>  					
 									</div>
 								</td>
@@ -105,60 +105,7 @@ if($_SESSION['numeroOnglet'] == 2){
 												</tr>	
 											</thead>	
 											<tbody>
-												<form action="addComponent.php" method="post">							
-													<tr CLASS="text"  ALIGN="LEFT"> 
-														<td>		
-															<div>																		
-																<select name="type">
-																	<option selected = "selected"><?php echo $_SESSION['nomTypeComposant'][0];?></option>
-																	<?php $totalTypeComposant = $_SESSION['totalTypeComposant']; $j = 1;
-																	while ($totalTypeComposant) {?>
-																		<option><?php echo $_SESSION['nomTypeComposant'][$j];?></option>				
-																		<?php $totalTypeComposant-- ; $j++;
-																	}?>																								
-																</select>			
-															</div>										
-														</td>
-														<td>										
-															<div>
-																<input type = "text" size="20"name="valeur_comp" value ="470n" />
-															</div>
-														</td>
-														<td>
-															<div>
-																<select name="boitier">
-																	<option selected = "selected"><?php echo $_SESSION['nomTypeBoitier'][0];?></option>
-																	<?php $totalBoitierComposant = $_SESSION['totalBoitierComposant']; $j = 1;
-																		while ($totalBoitierComposant) {?>
-																			<option><?php echo $_SESSION['nomTypeBoitier'][$j];?></option>				
-																			<?php $totalBoitierComposant-- ; $j++;
-																		}?>					
-																</select>		
-															</div>
-														</td>
-														<td>										
-															<div>
-																<input type = "text" size="6" name="stock_composant" value ="1" />
-															</div>
-														</td>
-														<td>										
-															<div>
-																<input type = "text" size="6" name="id_composant" value ="1" />
-															</div>
-														</td>
-														<td>									
-															<input type="submit">
-														</td>
-													</tr>		
-													<tr class="ent"> 
-														<th width="100"><?php echo Type; ?></th>
-														<th width="250"><?php echo valeur; ?></th>
-														<th width="100"><?php echo boitier; ?></th>
-														<th width="50"><?php echo stock; ?></th>
-														<th width="50"><?php echo code; ?></th>
-														<th width="50"><?php echo valide; ?></th>
-													</tr>		
-												</form>									
+														<?php include './requestComposant/selectComponent.php';?>		
 										
 							<!-- --------------------------------- -->	
 							<!--  Affiche la liste des composants  -->
@@ -171,9 +118,6 @@ if($_SESSION['numeroOnglet'] == 2){
 								</table>
 							</td>	
 						</table>						
-<!-- ******************************************************* -->
-<!-- ******************************************************* -->
-<!-- ******************************************************* -->		
 
 <!-- ******************************************************* -->						
 <!-- ******************* ONGLET BOARDS ***************** -->
@@ -187,7 +131,7 @@ if($_SESSION['numeroOnglet'] == 2){
 										<td>				
 											<thead>					
 												<tr class="ent">
-													<td class="ent" colspan="6">
+													<td class="ent" colspan="3">
 														<br>
 														<b><i>Liste des Boards<br></i></b>
 														<br>
@@ -195,68 +139,15 @@ if($_SESSION['numeroOnglet'] == 2){
 												</tr>	
 											</thead>	
 											<tbody>
-											<!-- création d'une carte -->
-												<tr class="ent"> 
-														<th width="300"><?php echo "Carte à créer"; ?></th>
-												 		<th width="150"><?php echo "Numéro de série"; ?></th>
-												</tr>		
-												<form action="createBoard.php" method="post">
-												<tr CLASS="text"  ALIGN="LEFT"> 
-														<td>		
-															<div>
-																<input type = "text" size="20"name="nameBoard" value ="xxx" />
-															</div>										
-														</td>
-														<td>										
-															<div>
-																<input type = "text" size="20"name="serialBoard" value ="xxx" />
-															</div>
-														</td>
-
-														<td>									
-															<input type="submit">
-														</td>
-													</tr>		
-												</form>
-											<!-- Ajout d'une carte -->	
-												<tr class="ent"> 
-														<th width="300"><?php echo "Choix de la carte"; ?></th>
-														<th width="150"><?php echo "Numéro de série"; ?></th>
-												</tr>		
-												<form action="addBoard.php" method="post">							
-													<tr CLASS="text"  ALIGN="LEFT"> 
-														<td>		
-															<div>																		
-																<select name="nameBoard">
-																	<option selected = "selected"><?php echo $_SESSION['listBoard'][0];?></option>
-																	<?php $totalTypeComposant = $_SESSION['totalListBoard']; $j = 1;
-																	while ($totalTypeComposant) {?>
-																		<option><?php echo $_SESSION['listBoard'][$j];?></option>				
-																		<?php $totalTypeComposant-- ; $j++;
-																	}?>																								
-																</select>			
-															</div>										
-														</td>
-														<td>										
-															<div>
-																<input type = "text" size="20"name="serialBoard" value ="xxx" />
-															</div>
-														</td>
-
-														<td>									
-															<input type="submit">
-														</td>
-													</tr>		
-													<tr class="ent"> 
-														<th width="300"><?php echo "Nom de la carte"; ?></th>
-														<th width="150"><?php echo "Numéro de série"; ?></th>
-
-													</tr>		
-												</form>									
+<!-- --------------------------------- -->	
+<!-- ------- création d'une carte ---- -->
+<!-- --------------------------------- -->																				
 										
-							<!-- --------------------------------- -->	
-							<!--  Affiche la liste des composants  -->
-							<!-- --------------------------------- -->				
+												<?php include './requestBoard/selectBoard.php' ?>
+										
+<!-- --------------------------------- -->	
+<!----  Affiche la liste des Boards  ---->
+<!-- --------------------------------- -->				
 												<?php include './requestBoard/printBoard.php' ?>								
 											</tbody>
 										</td>						
@@ -265,9 +156,48 @@ if($_SESSION['numeroOnglet'] == 2){
 								</table>
 							</td>	
 						</table>						
+
+<!-- ******************************************************* -->						
+<!-- ************** ONGLET BOARDS REQUIREMENTS ************* -->
 <!-- ******************************************************* -->
-<!-- ******************************************************* -->
-<!-- ******************************************************* -->		
+						<?php if($_SESSION['numeroOnglet'] == 3){ ?>	
+
+						<table border="1" align ="center" >														
+							<td>						
+								<table border="0" align ="center" >											
+									<tr>
+										<td>				
+											<thead>					
+												<tr class="ent">
+													<td class="ent" colspan="6">
+														<br>
+														<b><i>Nomenclature des Boards<br></i></b>
+														<br>
+													</td>	
+												</tr>	
+											</thead>	
+											<tbody>
+<!-- --------------------------------- -->	
+<!-- ------ Sélection d'une carte ---- -->
+<!-- --------------------------------- -->															
+												<?php include './requestBoardRequirement/selectBoard.php' ?>
+												<?php //echo print_r($S_SESSION['boardRequirementSelect']);?>
+<!-- --------------------------------- -->	
+<!-- ------ Sélection d'une carte ---- -->
+<!-- --------------------------------- -->															
+												<?php //include './requestBoardRequirement/addNomenclature.php' ?>											
+																			
+<!-- --------------------------------- -->	
+<!----  Affiche la liste des Boards  ---->
+<!-- --------------------------------- -->				
+												<?php include './requestBoardRequirement/printRequestBoard.php' ?>								
+											</tbody>
+										</td>						
+									</tr>							
+									<?php } ?>
+								</table>
+							</td>	
+						</table>		
 
 
 					

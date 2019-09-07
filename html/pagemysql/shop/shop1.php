@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-	$ongle =  2;
+	$ongle =  1;
 	$_SESSION['numeroOnglet'] = $ongle;
 	
-	header("location:shop.php");           
+	header("location:../shop.php");           
 ?>

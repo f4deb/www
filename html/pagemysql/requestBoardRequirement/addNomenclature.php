@@ -2,21 +2,20 @@
 
 <!-- Ajout d'une carte -->	
 <tr class="ent"> 
-	<th width="300"><?php echo "Choix de la carte"; ?></th>
+	<th width="300"><?php echo "Rep Topo"; ?></th>
+	<th width="300"><?php echo "Désignation"; ?></th>
 </tr>		
 <form action="" method="post">							
 	<tr CLASS="text"  ALIGN="LEFT"> 
-		<td>		
-			<div>																		
-				<select name="nameBoard">
-					<option selected = "selected"><?php echo $_SESSION['listBoard'][0];?></option>
-					<?php $totalTypeComposant = $_SESSION['totalListBoard']; $j = 1;
-					while ($totalTypeComposant) {?>
-						<option><?php echo $_SESSION['listBoard'][$j];?></option>				
-						<?php $totalTypeComposant-- ; $j++;
-					}?>																								
-				</select>			
-			</div>										
+		<td>										
+			<div>
+				<input type = "text" size="25" name="repTopo" value ="1" />
+			</div>
+		</td>
+				<td>										
+			<div>
+				<input type = "text" size="6" name="composant" value ="1" />
+			</div>
 		</td>
 		<td>									
 			<input type="submit" value="S&eacute;lectionner">

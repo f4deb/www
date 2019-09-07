@@ -21,14 +21,14 @@
 ?>
 
 <!-- Ajout d'une carte -->	
-<tr class="ent"> 
-	<th width="300"><?php echo "Choix de la carte"; ?></th>
+<tr class="ent" > 
+	<th width="800" colspan="3"><?php echo "Choix de la carte"; ?></th>
 </tr>		
 <form action="" method="post">							
 	<tr CLASS="text"  ALIGN="LEFT"> 
 		<td>		
 			<div>																		
-				<select name="nameBoard">
+				<select name="nameBoard"colspan="3">
 					<option selected = "selected"><?php echo $S_SESSION['boardNameSelect'][0];?></option>
 					<?php $totalTypeComposant = $_SESSION['totalListBoard']; $j = 1;
 					while ($totalTypeComposant) {?>

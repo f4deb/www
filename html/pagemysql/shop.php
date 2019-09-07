@@ -185,7 +185,7 @@ if($_SESSION['numeroOnglet'] == 2){
 <!-- --------------------------------- -->	
 <!-- ------ Sélection d'une carte ---- -->
 <!-- --------------------------------- -->															
-												<?php //include './requestBoardRequirement/addNomenclature.php' ?>											
+												<?php include './requestBoardRequirement/addNomenclature.php' ?>											
 																			
 <!-- --------------------------------- -->	
 <!----  Affiche la liste des Boards  ---->

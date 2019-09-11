@@ -12,7 +12,7 @@ session_start();
 <!-- requete d'affichage de la liste des composants -->
 <?php
 	$printBoardRequirementSql = "SELECT boardsRequirements.rep_topo,boardsRequirements.id_composant,boardsRequirements.id_boards,
-											composant.valeur_composant   
+											composant.valeur_composant,composant.boitier_composant
 											FROM boardsRequirements,composant  
 											Where boardsRequirements.id_composant = composant.id_composant 
 											and boardsRequirements.id_boards = '$boardNameSelect[1]';
@@ -28,6 +28,9 @@ session_start();
 			</td>
 			<td CLASS="text"  ALIGN="LEFT">
 				<?php	echo $data['valeur_composant'];?>
+			</td>
+			<td CLASS="text"  ALIGN="LEFT">
+				<?php	echo $_SESSION['nomTypeBoitier'][$data['boitier_composant']];?>
 			</td>
 			<td CLASS="text"  ALIGN="LEFT">
 				<?php	echo $data['id_composant'];?>

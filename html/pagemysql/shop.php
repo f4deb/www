@@ -181,7 +181,7 @@ if($_SESSION['numeroOnglet'] == 2){
 <!-- ------ Sélection d'une carte ---- -->
 <!-- --------------------------------- -->															
 												<?php include './requestBoardRequirement/selectBoard.php' ?>
-												<?php //echo print_r($S_SESSION['boardRequirementSelect']);?>
+												
 <!-- --------------------------------- -->	
 <!-- ------ Sélection d'une carte ---- -->
 <!-- --------------------------------- -->															

@@ -20,9 +20,13 @@ if($_SESSION['numeroOnglet'] == 2){
 	$requestListBoard = mysqli_query($db,$listBoardSql);
 	while ($data = mysqli_fetch_array($requestListBoard)){
 		$listBoard[] = $data['boards'];
+		$idBoards[] = $data['id_Boards'];
 		$_SESSION['listBoard'] = $listBoard;
+		$_SESSION['idBoards'] = $idBoards;
 	}
 	
+	
+
 	
 	$maxBoardList = "SELECT id_boards 
 								FROM boards
@@ -30,6 +34,8 @@ if($_SESSION['numeroOnglet'] == 2){
 	$requestMaxBoard = mysqli_query($db,$maxBoardList);
 	$_SESSION['totalListBoard'] = mysqli_num_rows($requestMaxBoard)-1;
 }
+
+
 
 ?>
 

@@ -2,7 +2,7 @@
 
 
 
-<?php echo print_r($_SESSION['boardNameSelect1']);?>
+<?php //echo print_r($_SESSION['boardNameSelect1']);?>
 
 
 

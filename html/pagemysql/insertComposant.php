@@ -8,45 +8,61 @@ $db = mysqli_connect($_SESSION['hote'], $_SESSION['utilisateur'], $_SESSION['mdp
            or die('could not connect to database');
 
 //recupère les données à ajouter pour les modifier           
-$repTopo = $_POST['repTopo'];
-$typeBoitier = $_POST['composant'];
+$type[] = $_POST['type'];
+$_SESSION['typeSel'] = $type;
+$boitier[] = $_POST['boitier'];
 
 
- /*          
-//cherche le type selectionné
-$listComposantSql = "SELECT typecomposant,numTypeComposant
-							FROM typeComposant
-							WHERE typecomposant = '$typeComposant'";
-$requeteListComposant = mysqli_query ($db,$listComposantSql);
-
-while ($data = mysqli_fetch_array($requeteListComposant)){
-		$typeComposant = $data['typecomposant'];
-		$numTypeComposant = $data['numTypeComposant'];
-		$_SESSION['typeComposant'] = $typeComposant;
-		$_SESSION['numTypeComposant'] = $numTypeComposant;
-		
-};
+// Détermine le numéro du type de composant sélectionné
+$sql = "SELECT typecomposant,numTypeComposant
+			FROM typeComposant
+			WHERE typecomposant = '$type[0]'";
+$requestSql = mysqli_query($db,$sql);
+	while ($data = mysqli_fetch_array($requestSql)){
+		$numTypeComposant[] = $data['numTypeComposant'];
+	}	
+	
+	//$numTypeComposant[] = mysqli_fetch_row($requestSql);	
 
 
 
-//cherche le boitier selectionner
-$listBoitierSql = "SELECT typeBoitier,id_typeBoitier
-							FROM boitierComposant 
-							WHERE typeBoitier = '$typeBoitier'";
- 
-							
-$requeteListBoitiersql=mysqli_query($db,$listBoitierSql);							
-							
-while ($data = mysqli_fetch_array($requeteListBoitiersql)){
-		$typeBoitier =	$data['typeBoitier'];	
-		$id_typeBoitier = $data['id_typeBoitier'];		
-		$_SESSION['typeBoitier'] =	$typeBoitier;
-		$_SESSION['id_typeBoitier'] = $id_typeBoitier;
-};
-        
+
+//echo "<BR>";
+
+//echo print_r($numTypeComposant);
+//echo "<BR>";
+//echo print_r($_SESSION['typeSel']);
+
+//echo "<BR>";
+//echo print_r($_SESSION['valeurComposant']);
+
+
+// Détermine le numéro du type de boiter sélectionné
+
+
+
+
+
+
+
+// liste des composants a afficher de le menu désésignation
+$sql = "SELECT valeur_composant,id_typeComposant,id_composant
+			FROM composant
+			WHERE id_typeComposant = '$numTypeComposant[0]'";
+$requestSql = mysqli_query($db,$sql);
+	while ($data = mysqli_fetch_array($requestSql)){
+		$valeurComposant[] = $data['valeur_composant'];
+		$idTypeComposant[] = $data['id_typeComposant'];
+		$idComposant[] = $data['id_composant'];		
+		$_SESSION['valeurComposant'] = $valeurComposant;
+		$_SESSION['idTypeComposant'] = $idTypeComposant;
+		$_SESSION['idComposant'] = $idComposant;
+	}	
+
+
            
            
-     
+/*     
 //Requete d'insertion du composant selectionné dans la table "composant"
 $sql = 'INSERT INTO `composant`
    (`valeur_composant`,`boitier_composant`,`id_typeComposant`,`stock_composant`,`id_composant`)

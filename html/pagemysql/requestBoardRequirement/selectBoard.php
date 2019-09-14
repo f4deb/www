@@ -11,7 +11,7 @@
 
 <!-- Ajout d'une carte -->	
 <tr class="ent" > 
-	<th width="800" colspan="4"><?php echo "Choix de la carte"; ?></th>
+	<th width="800" colspan="6"><?php echo "Choix de la carte"; ?></th>
 </tr>		
 <form action="selBoard.php" method="post">							
 	<tr CLASS="text"  ALIGN="RIGHT"> 

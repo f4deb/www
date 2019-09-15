@@ -16,7 +16,8 @@
 	<tr class="ent"> 
 
 		<th width="50"><?php echo 'Rep Topo'; ?></th>
-		<th width="50"><?php echo 'd&eacute;signation'; ?></th>
+		<th width="50" colspan="2"><?php echo 'd&eacute;signation'; ?></th>
+		<th width="50"><?php echo 'Empreinte'; ?></th>
 		<th width="50"><?php echo 'Code'; ?></th>
 	</tr>		
 <!-- requete d'affichage de la liste des composants -->
@@ -36,7 +37,7 @@
 			<td CLASS="text"  ALIGN="LEFT">
 				<?php	echo $data['rep_topo'];?>
 			</td>
-			<td CLASS="text"  ALIGN="LEFT">
+			<td CLASS="text"  ALIGN="LEFT" colspan="2">
 				<?php	echo $data['valeur_composant'];?>
 			</td>
 			<td CLASS="text"  ALIGN="LEFT">

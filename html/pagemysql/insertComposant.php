@@ -7,59 +7,10 @@ $db = mysqli_connect($_SESSION['hote'], $_SESSION['utilisateur'], $_SESSION['mdp
 
            or die('could not connect to database');
 
-//recupère les données à ajouter pour les modifier           
-$type[] = $_POST['type'];
-$_SESSION['typeSel'] = $type;
-$boitier[] = $_POST['boitier'];
-
-
-// Détermine le numéro du type de composant sélectionné
-$sql = "SELECT typecomposant,numTypeComposant
-			FROM typeComposant
-			WHERE typecomposant = '$type[0]'";
-$requestSql = mysqli_query($db,$sql);
-	while ($data = mysqli_fetch_array($requestSql)){
-		$numTypeComposant[] = $data['numTypeComposant'];
-	}	
-	
-	//$numTypeComposant[] = mysqli_fetch_row($requestSql);	
 
 
 
-
-//echo "<BR>";
-
-//echo print_r($numTypeComposant);
-//echo "<BR>";
-//echo print_r($_SESSION['typeSel']);
-
-//echo "<BR>";
-//echo print_r($_SESSION['valeurComposant']);
-
-
-// Détermine le numéro du type de boiter sélectionné
-
-
-
-
-
-
-
-// liste des composants a afficher de le menu désésignation
-$sql = "SELECT valeur_composant,id_typeComposant,id_composant
-			FROM composant
-			WHERE id_typeComposant = '$numTypeComposant[0]'";
-$requestSql = mysqli_query($db,$sql);
-	while ($data = mysqli_fetch_array($requestSql)){
-		$valeurComposant[] = $data['valeur_composant'];
-		$idTypeComposant[] = $data['id_typeComposant'];
-		$idComposant[] = $data['id_composant'];		
-		$_SESSION['valeurComposant'] = $valeurComposant;
-		$_SESSION['idTypeComposant'] = $idTypeComposant;
-		$_SESSION['idComposant'] = $idComposant;
-	}	
-
-
+           
            
            
 /*     

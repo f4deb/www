@@ -66,14 +66,14 @@
 	<tr CLASS="text"  ALIGN="CENTER"> 
 		<td>										
 			<div>
-				<input type = "text" size="8" name="repTopo" value ="" />
+				<input type = "text" size="10" name="repTopo" value ="" />
 			</div>
 		</td>
 		<td colspan="2" ALIGN="CENTER">										
 			<div>
 				<select name="composant">
-					<option selected = "selected"><?php echo $_SESSION['valeurComposant'][0];?></option>
-					<?php $totalTypeComposant = $_SESSION['totalTypeComposant']; $j = 1;
+					<option selected = "selected"><?php echo $_SESSION['valueComponent'];?></option>
+					<?php $totalTypeComposant = $_SESSION['totalTypeComposant']+1; $j = 0;
 					while ($totalTypeComposant) {?>
 						<option><?php echo $_SESSION['valeurComposant'][$j];?></option>				
 						<?php $totalTypeComposant-- ; $j++;
@@ -102,7 +102,7 @@
 	<th ><?php echo "Code"; ?></th>	
 
 </tr>	
-						
+<form action="ValideCompToBoard.php" method="post">											
 	<tr CLASS="text"  ALIGN="LEFT"> 
 		<td ALIGN="CENTER">										
 			<div>
@@ -121,7 +121,12 @@
 		</td>
 		<td>										
 			<div>
-				<?php echo "12345678"; ?>	
+				<?php echo $_SESSION['codeComposant']; ?>	
+			</div>
+		</td>
+		<td>										
+			<div>
+				<input type = "text" size="10" name="repTopo" value ="" />
 			</div>
 		</td>
 
@@ -129,7 +134,7 @@
 			<input type="submit" value="Valider">
 		</td>
 	</tr>		
-
+</form>
 
 
 <?php 
@@ -142,6 +147,8 @@
 //echo print_r($_SESSION['nomTypeBoitier']);
 //echo "<BR>";
 //echo print_r($_SESSION['idComposant']);
+
+//echo print_r($_SESSION['codeComposant']);
 
 
 

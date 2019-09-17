@@ -42,7 +42,7 @@ if($_SESSION['numeroOnglet'] == 2){
 <!DOCTYPE html>
 <html>
     <head>
-        <title>F4DEB Base de donnée;</title>
+        <title>F4DEB Base de donnée V1-00 2019</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <LINK REL="stylesheet" TYPE="text/css" HREF="../blueweb.css">
